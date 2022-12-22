@@ -3,8 +3,10 @@ import {sendCatPhoto} from "./Utils/sendCatPhoto.js";
 import {HOUR, MINUTE} from "./Constants/time.js";
 import {interval, setCatInterval} from "./Utils/catInterval.js";
 import {inlineKeyboard} from "./Constants/keyboards.js";
+import * as dotenv from 'dotenv'
+dotenv.config()
 
-const bot = new Telegraf("5981905154:AAHfM-hRy3dbLAe-_rhXZhwAN9CsCaSNKOY")
+const bot = new Telegraf(process.env.TG_BOT)
 
 bot.start( async (ctx)=>{
     await ctx.telegram.sendMessage(ctx.from.id,"Інтервал: ", inlineKeyboard)
